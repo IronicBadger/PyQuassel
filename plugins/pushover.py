@@ -16,7 +16,6 @@ def onMessageReceived(bot, message):
     if message['type'] == Message.Type.Plain or message['type'] == Message.Type.Action:
         # Token match
         keywords = bot.config.pushIfKeyword
-        print(keywords)
         pattern = r'\b(' + '|'.join(keywords) + r')\b'
         if re.search(pattern, message['content'], flags=re.IGNORECASE):
             sendNotification = True
